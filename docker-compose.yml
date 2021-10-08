@@ -1,0 +1,15 @@
+version: "3.8"
+volumes:
+  fifadb-data:
+networks:
+  fifademo-network:
+    driver: bridge
+services:
+ mongodb:
+  image: mongo
+  container_name: fifa-mongodb
+  volumes: 
+  - fifadb-data:/data/db
+  ports:
+  - 27017:27017
+  restart: unless-stopped
